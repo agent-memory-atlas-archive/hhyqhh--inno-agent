@@ -796,7 +796,10 @@ function restoreSessionBeforeFailedPrompt(session: AgentSession, previousLeafId:
 	} else {
 		session.sessionManager.resetLeaf();
 	}
-	session.agent.state.messages = session.sessionManager.buildSessionContext().messages;
+	// pi ≥0.87: SessionManager is canonical for provider context — assigning
+	// session.agent.state.messages no longer has any effect. refreshContext()
+	// rebuilds agent state from the session manager after branch navigation.
+	session.refreshContext();
 }
 
 /**
@@ -1185,7 +1188,9 @@ export async function branchSessionBeforeUserMessage(
 			replacedEntryId: entryId,
 			editedAt: new Date().toISOString(),
 		});
-		session.agent.state.messages = manager.buildSessionContext().messages;
+		// pi ≥0.87: rebuild agent state from the session manager instead of
+		// assigning agent.state.messages (which is no longer observed).
+		session.refreshContext();
 		return { replacedEntryId: entryId, branchMarkerId };
 	}, opts);
 }

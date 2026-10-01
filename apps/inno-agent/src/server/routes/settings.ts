@@ -505,7 +505,7 @@ export async function handleSettingsRoutes(
 		return true;
 	}
 
-	// --- MCP server management (managed file: <configDir>/mcp.json) ---
+	// --- MCP server management (managed file: <configDir>/mcp-adapter.json) ---
 	if (method === "GET" && url === "/api/mcp") {
 		json(res, 200, getMcpOverview(config, paths));
 		return true;
