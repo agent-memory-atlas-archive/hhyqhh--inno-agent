@@ -122,8 +122,8 @@ const DEFAULT_SMART_INPUT_RULE_IDS = new Set(DEFAULT_SMART_INPUT_RULES.map((rule
 /**
  * MCP (Model Context Protocol) support via the pi-mcp-adapter extension.
  * Master switch (default OFF, opt-in). Server definitions live in the standard
- * MCP config file `<configDir>/mcp.json` (managed through the web UI or edited
- * by hand); the adapter also merges the usual shared locations (`.mcp.json` in
+ * MCP config file `<configDir>/mcp-adapter.json` (managed through the web UI or
+ * edited by hand); the adapter also merges the usual shared locations (`.mcp.json` in
  * the workspace, `~/.config/mcp/mcp.json`, …). Changing `enabled` takes effect
  * on the next process start because the extension set is fixed at boot.
  */

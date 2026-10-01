@@ -36,7 +36,7 @@ applyRuntimeEnvironment(paths);
 const config = loadConfig(paths.configPath);
 applyProviderProxyBypass(config);
 
-// First-run MCP template: seeds <configDir>/mcp.json with a disabled
+// First-run MCP template: seeds <configDir>/mcp-adapter.json with a disabled
 // reference server when the file doesn't exist yet. No-op afterwards.
 seedManagedMcpConfig(paths);
 
